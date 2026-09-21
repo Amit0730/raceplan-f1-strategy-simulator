@@ -19,6 +19,7 @@ import {
 import { simulateStrategy } from '@/lib/simulation-engine';
 import { CIRCUITS } from '@/lib/circuits';
 import { useIsClient } from '@/lib/use-is-client';
+import { playTeamRadioBeep } from '@/lib/audio';
 import { Zap, CheckCircle2 } from 'lucide-react';
 
 export default function HomePage() {
@@ -49,6 +50,7 @@ export default function HomePage() {
   const handleSimulate = async () => {
     if (!activeStrategy) return;
     setIsSimulating(true);
+    playTeamRadioBeep();
 
     // Minor delay for visceral computing feel
     await new Promise((resolve) => setTimeout(resolve, 350));

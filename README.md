@@ -1,6 +1,7 @@
 # 🏎️ RacePlan — Interactive F1 Race Strategy Simulator
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAmit0730%2Fraceplan-f1-strategy-simulator)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](https://temporary-agile-azure-pjrg2b4.vercel.app)
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-v4-38bdf8?style=flat&logo=tailwind-css)
