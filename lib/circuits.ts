@@ -1,0 +1,168 @@
+import { CircuitPreset, CompoundInfo, TyreCompound } from '@/types/f1';
+
+export const CIRCUITS: CircuitPreset[] = [
+  {
+    id: 'silverstone',
+    name: 'Silverstone Circuit',
+    location: 'Northamptonshire',
+    country: 'United Kingdom',
+    flag: '🇬🇧',
+    totalLaps: 52,
+    baseLapTimeSeconds: 88.5, // ~1:28.500
+    defaultPitLossSeconds: 22.5,
+    trackDegradation: 'HIGH',
+    trackLengthKm: 5.891,
+    description: 'High-speed flowing corners like Maggotts, Becketts, and Chapel subject tyres to extreme lateral thermal degradation.',
+  },
+  {
+    id: 'spa',
+    name: 'Circuit de Spa-Francorchamps',
+    location: 'Stavelot',
+    country: 'Belgium',
+    flag: '🇧🇪',
+    totalLaps: 44,
+    baseLapTimeSeconds: 105.0, // ~1:45.000
+    defaultPitLossSeconds: 21.0,
+    trackDegradation: 'STANDARD',
+    trackLengthKm: 7.004,
+    description: 'The longest circuit on the calendar. Elevation changes and unpredictable Ardennes microclimates often demand mixed-weather calls.',
+  },
+  {
+    id: 'monza',
+    name: 'Autodromo Nazionale Monza',
+    location: 'Monza',
+    country: 'Italy',
+    flag: '🇮🇹',
+    totalLaps: 53,
+    baseLapTimeSeconds: 81.2, // ~1:21.200
+    defaultPitLossSeconds: 24.0,
+    trackDegradation: 'LOW',
+    trackLengthKm: 5.793,
+    description: 'The Temple of Speed. Extreme low downforce leads to low lateral wear, frequently making a 1-stop strategy dominant.',
+  },
+  {
+    id: 'monaco',
+    name: 'Circuit de Monaco',
+    location: 'Monte Carlo',
+    country: 'Monaco',
+    flag: '🇲🇨',
+    totalLaps: 78,
+    baseLapTimeSeconds: 74.2, // ~1:14.200
+    defaultPitLossSeconds: 21.5,
+    trackDegradation: 'LOW',
+    trackLengthKm: 3.337,
+    description: 'Narrow street circuit with minimal tyre degradation. Overtaking is near impossible, making track position and pit stop timing vital.',
+  },
+  {
+    id: 'bahrain',
+    name: 'Bahrain International Circuit',
+    location: 'Sakhir',
+    country: 'Bahrain',
+    flag: '🇧🇭',
+    totalLaps: 57,
+    baseLapTimeSeconds: 92.8, // ~1:32.800
+    defaultPitLossSeconds: 23.5,
+    trackDegradation: 'EXTREME',
+    trackLengthKm: 5.412,
+    description: 'Abrasive asphalt surface and intense traction zones punish rear tyres, almost always compelling aggressive multi-stop strategies.',
+  },
+  {
+    id: 'suzuka',
+    name: 'Suzuka International Racing Course',
+    location: 'Mie Prefecture',
+    country: 'Japan',
+    flag: '🇯🇵',
+    totalLaps: 53,
+    baseLapTimeSeconds: 91.0, // ~1:31.000
+    defaultPitLossSeconds: 22.0,
+    trackDegradation: 'HIGH',
+    trackLengthKm: 5.807,
+    description: 'Iconic figure-eight circuit. High-G sector one Esses stress tyre shoulders, providing huge undercut opportunities.',
+  },
+  {
+    id: 'red-bull-ring',
+    name: 'Red Bull Ring',
+    location: 'Spielberg',
+    country: 'Austria',
+    flag: '🇦🇹',
+    totalLaps: 71,
+    baseLapTimeSeconds: 67.2, // ~1:07.200
+    defaultPitLossSeconds: 20.5,
+    trackDegradation: 'STANDARD',
+    trackLengthKm: 4.318,
+    description: 'Short lap time with heavy braking zones. Traffic management and tyre delta dictate tactical pit decisions.',
+  },
+];
+
+export const COMPOUND_INFO: Record<TyreCompound, CompoundInfo> = {
+  SOFT: {
+    name: 'Soft',
+    code: 'SOFT',
+    colorHex: '#e10600',
+    bgClass: 'bg-red-500/15',
+    textClass: 'text-red-400',
+    borderClass: 'border-red-500/40',
+    badgeBg: 'bg-red-600',
+    initialPaceDelta: -0.65, // 0.65s faster than Medium initially
+    wearRatePerLap: 5.2, // ~5.2% wear per lap standard
+    optimalLifeLaps: 16,
+    cliffMultiplier: 1.8,
+    description: 'Maximum mechanical grip and peak qualifying/undercut pace, but rapid thermal degradation and early cliff drop-off.',
+  },
+  MEDIUM: {
+    name: 'Medium',
+    code: 'MEDIUM',
+    colorHex: '#f59e0b',
+    bgClass: 'bg-amber-500/15',
+    textClass: 'text-amber-400',
+    borderClass: 'border-amber-500/40',
+    badgeBg: 'bg-amber-500',
+    initialPaceDelta: 0.0, // Baseline
+    wearRatePerLap: 3.4,
+    optimalLifeLaps: 26,
+    cliffMultiplier: 1.5,
+    description: 'Balanced compound offering solid race pace and moderate durability. The workhorse for opening race stints.',
+  },
+  HARD: {
+    name: 'Hard',
+    code: 'HARD',
+    colorHex: '#f8fafc',
+    bgClass: 'bg-slate-200/15',
+    textClass: 'text-slate-100',
+    borderClass: 'border-slate-300/40',
+    badgeBg: 'bg-slate-200 text-slate-900',
+    initialPaceDelta: 0.75, // 0.75s slower than Medium initially
+    wearRatePerLap: 2.1,
+    optimalLifeLaps: 40,
+    cliffMultiplier: 1.25,
+    description: 'Maximum durability and heat resistance. Takes longer to warm up but can sustain long marathon stints with minimal degradation.',
+  },
+  INTERMEDIATE: {
+    name: 'Intermediate',
+    code: 'INTERMEDIATE',
+    colorHex: '#10b981',
+    bgClass: 'bg-emerald-500/15',
+    textClass: 'text-emerald-400',
+    borderClass: 'border-emerald-500/40',
+    badgeBg: 'bg-emerald-600',
+    initialPaceDelta: 3.8, // Slower on dry, optimal in damp
+    wearRatePerLap: 3.8,
+    optimalLifeLaps: 24,
+    cliffMultiplier: 1.6,
+    description: 'Grooved tyre engineered for damp or drying track surfaces with no standing water. Disperses ~30L of water/sec at 300 km/h.',
+  },
+  WET: {
+    name: 'Full Wet',
+    code: 'WET',
+    colorHex: '#0284c7',
+    bgClass: 'bg-sky-500/15',
+    textClass: 'text-sky-400',
+    borderClass: 'border-sky-500/40',
+    badgeBg: 'bg-sky-600',
+    initialPaceDelta: 8.5, // Slower on dry, optimal in monsoon
+    wearRatePerLap: 3.2,
+    optimalLifeLaps: 30,
+    cliffMultiplier: 1.4,
+    description: 'Deep tread pattern designed to evacuate ~85L of water/sec at top speed. Essential in heavy rain and standing water.',
+  },
+};
